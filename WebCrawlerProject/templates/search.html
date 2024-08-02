@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(93, 18, 222);
+        }
+        #search-container {
+            width: 80%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        #search-box {
+            width: 30%;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 2rem;
+            opacity: .3;
+            color: rgb(0, 0, 0);
+            transition: opacity .5s ease;
+            margin: 1rem;
+        }
+        #search-box:focus{
+            opacity:1;   
+        }
+        #search-button {
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 2rem;
+        }
+        #search-button:hover{
+            background-color: rgb(121, 121, 235);
+            cursor: pointer;
+            font-style: italic;
+            font-weight: bold;
+        }
+        #background-video {
+            position: fixed;
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            z-index: 0;
+            border-radius: 2rem;
+        }
+        h1{
+            color: white;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        <h1>Search Here</h1>
+        <form action="/search" method="get">
+            <input type="text" id="search-box" name="query" placeholder="Search..." required>
+            <button type="submit" id="search-button">Search</button>
+        </form>
+    </div>
+    <video id="background-video" autoplay loop muted poster="">
+        <source src="{{ url_for('static', filename='video1.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
+

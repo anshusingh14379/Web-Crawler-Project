@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(93, 18, 222);
+        }
+
+        #background-video {
+            position: fixed;
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            z-index: 0;
+            border-radius: 2rem;
+        }
+
+        h1 {
+            color: whitesmoke;
+            text-align: center;
+            padding: .5rem;
+            border-radius: 50%;
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        ul {
+            z-index: 1;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 6rem; 
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            padding: 1rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            text-align: center;
+            border-top-left-radius: 5rem;
+            border-bottom-right-radius: 5rem;
+            margin: .1rem;
+            background-color: rgb(148, 226, 240);
+            border-radius: 1rem;
+            display: inline-block; 
+            padding: 1rem;
+            max-width: 80%; 
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Search Results</h1>
+    
+        <ul>
+            {% for result in results %}
+
+            <li>
+                <strong>Rank:</strong> {{ loop.index }}<br>
+                <strong>Name:</strong> {{ result.name }}<br>
+                <strong>URL:</strong> <a href="{{ result.url }}">{{ result.url }}</a><br>
+                <strong>Average Similarity Score:</strong> {{ result.avg_similarity_score }}
+            </li>
+
+            {% endfor %}
+        </ul>
+    
+    <video id="background-video" autoplay loop muted poster="">
+        <source src="{{ url_for('static', filename='video1.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+
+</html>
