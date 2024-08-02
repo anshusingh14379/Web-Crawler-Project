@@ -1,0 +1,3 @@
+There are several resources (articles, blogs, etc.) available on the Internet. The majority of them addressed the many points of view that people had on the subject. Many others will be expressing their thoughts on the subject at the same time.
+We pondered how to make it easier for those looking for information on a certain subject by keeping this in mind. These people generally search for such topics and discover a multitude of material. 
+It will be easier for the reader to read a specific document if all of those articles are selected, their similarity scores are computed, and the papers are ranked accordingly.
